@@ -1,0 +1,34 @@
+/*
+ * Problem: UWCOI20A
+ * URL: https://www.codechef.com/ARRAYSP01/problems/UWCOI20A
+ * Language: 42
+ * Solved on: 2026-07-27
+ * Auto-committed by CodeChef → GitHub Sync
+ */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int test_Case;
+	cin>>test_Case;
+	while(test_Case--){
+	
+    	int max = -1;
+        int n;
+        cin>>n;
+        vector<int>arr(n);
+    	for(int i=0;i<n;i++){
+    	    cin>>arr[i];
+    	    if(max<arr[i]){
+    	        max=arr[i];
+    	    }
+    	}
+    	
+    	cout<<max<<endl;;
+    	
+	}
+	return 0;
+
+}
