@@ -1,0 +1,17 @@
+/*
+ * Problem: SEARCHINARR
+ * URL: https://www.codechef.com/ARRAYSP01/problems/SEARCHINARR
+ * Language: 42
+ * Solved on: 2026-07-27
+ * Auto-committed by CodeChef → GitHub Sync
+ */
+
+string solve(int N, int X, const vector<int>& A) {
+    for(int i=0;i<N;i++){
+        if(A[i]==X){
+            return "YES";
+        }
+    }
+    
+    return "NO";
+}
