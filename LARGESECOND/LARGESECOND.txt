@@ -1,0 +1,41 @@
+/*
+ * Problem: LARGESECOND
+ * URL: https://www.codechef.com/ARRAYSP01/problems/LARGESECOND
+ * Language: 42
+ * Solved on: 2026-07-28
+ * Auto-committed by CodeChef → GitHub Sync
+ */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<int> a(n);
+
+        for (int i = 0; i < n; i++)
+            cin >> a[i];
+
+        int maxi = INT_MIN;
+        int second_max = INT_MIN;
+
+        for (int i = 0; i < n; i++) {
+            if (a[i] > maxi) {
+                second_max = maxi;
+                maxi = a[i];
+            }
+            else if (a[i] > second_max && a[i] != maxi) {
+                second_max = a[i];
+            }
+        }
+
+        
+        cout << maxi + second_max << endl;
+    }
+}
