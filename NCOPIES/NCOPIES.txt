@@ -1,0 +1,65 @@
+/*
+ * Problem: NCOPIES
+ * URL: https://www.codechef.com/ARRAYSP01/problems/NCOPIES
+ * Language: 42
+ * Solved on: 2026-07-28
+ * Auto-committed by CodeChef → GitHub Sync
+ */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int T;
+    cin >> T;
+
+    while (T--) {
+        long long N, M;
+        cin >> N >> M;
+
+        string A;
+        cin >> A;
+
+        long long cnt = 0;
+        vector<long long> pref(N + 1);
+
+        for (int i = 1; i <= N; i++) {
+            pref[i] = pref[i - 1] + (A[i - 1] == '1');
+        }
+
+        cnt = pref[N];
+        long long total = cnt * M;
+
+        if (total % 2) {
+            cout << 0 << "\n";
+            continue;
+        }
+
+        if (cnt == 0) {
+            cout << N * M << "\n";
+            continue;
+        }
+
+        long long target = total / 2;
+        long long ans = 0;
+
+        for (int i = 1; i <= N; i++) {
+            long long x = target - pref[i];
+
+            if (x < 0) continue;
+            if (x % cnt != 0) continue;
+
+            long long r = x / cnt;
+
+            if (0 <= r && r < M)
+                ans++;
+        }
+
+        cout << ans << "\n";
+    }
+
+    return 0;
+}
